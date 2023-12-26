@@ -13,7 +13,9 @@ namespace KutuphaneCase.Data
         private bool disposedValue;
         public AppDbContext _appDbContext { get; set; }
         private IBookRepository _bookRepository { get; set; }
-        public IBookRepository BookRepository => _bookRepository = _bookRepository ?? new BooksRepository(_appDbContext);
+
+        public IBookRepository Books => _bookRepository = _bookRepository ?? new BooksRepository(_appDbContext);
+
         public UnitOfWork(AppDbContext dbContext)
         {
             _appDbContext=dbContext;
