@@ -1,4 +1,5 @@
 ﻿using KutuphaneCase.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,11 @@ namespace KutuphaneCase.Data
     {
         private bool disposedValue;
         public AppDbContext _appDbContext { get; set; }
-        public IBookRepository _bookRepository { get; set; }
-        public UnitOfWork(AppDbContext dbContext, IBookRepository bookRepository)
+        private IBookRepository _bookRepository { get; set; }
+        public IBookRepository BookRepository => _bookRepository = _bookRepository ?? new BooksRepository(_appDbContext);
+        public UnitOfWork(AppDbContext dbContext)
         {
             _appDbContext=dbContext;
-            _bookRepository=bookRepository;
         }
 
         public async Task Save()
