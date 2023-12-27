@@ -1,5 +1,14 @@
-var builder = WebApplication.CreateBuilder(args);
+using KutuphaneCase.Data;
+using KutuphaneCase.Service;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnectionString"));
+}); ;
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IBooksService, BooksService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

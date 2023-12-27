@@ -1,8 +1,50 @@
-﻿@{
+﻿@model IEnumerable<BookViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Kitap Listesi</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col"></th>
+                <th scope="col">Kitap Adı</th>
+                <th scope="col">Yazar</th>
+                <th scope="col">Geri Dönüş Tarihi</th>
+                <th scope="col">Durumu</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int index = 0;
+            }
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td scope="row">@(++index)</td>
+                    <td><img src="@book.PictureURL" class="img-thumbnail" width="200" height="350" /></td>
+                    <td>@book.Title</td>
+                    <td>@book.Authors</td>
+                    <td>
+                        @book.ReturnDate
+                    </td>
+                    <td>@if (book.ReturnDate=="")
+                        {
+                            <span>Rafta</span>
+                        }
+                        else
+                        {
+                            <span><strong>@book.ReturnDate</strong></span>
+                        }
+                    </td>
+                    <td>
+                        <a href="javascript:;" class="">Ödünç Ver</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
