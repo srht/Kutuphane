@@ -6,17 +6,20 @@
 
 <p>
     <form method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly"></div>
         <div class="form-group">
             <label for="inputBookTitle">Kitap Adı</label>
-            <input type="text" name="Title" class="form-control" id="inputBookTitle" aria-describedby="emailHelp" required placeholder="Kitap adı">
+            <input type="text" name="Title" class="form-control" id="inputBookTitle" aria-describedby="emailHelp" placeholder="Kitap adı">
+            <span asp-validation-for="Title"></span>
         </div>
         <div class="form-group">
             <label for="inputBookAuthors">Yazarlar</label>
-            <input type="text" name="Authors" class="form-control" id="inputBookAuthors" placeholder="Yazarlar" required>
+            <input type="text" name="Authors" class="form-control" id="inputBookAuthors" placeholder="Yazarlar">
+            <span asp-validation-for="Authors"></span>
         </div>
         <div class="form-group">
             <label for="inputBookPicture">Resim</label>
-            <input required type="file" name="PictureFile" />
+            <input type="file" name="PictureFile" />
         </div>
         <button type="submit" class="btn btn-primary">Kaydet</button>
     </form>

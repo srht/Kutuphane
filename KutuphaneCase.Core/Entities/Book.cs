@@ -16,7 +16,7 @@ namespace KutuphaneCase.Core.Entities
         [MaxLength(5000)]
         public string URL { get; set; }
         [MaxLength(500)]
-        public string BorrowedBy { get; set; }
+        public string? BorrowedBy { get; set; }
         public DateTime? ReturnDate { get; set; }
     }
 }
