@@ -37,14 +37,17 @@
                         }
                         else
                         {
-                            <span><strong>@book.ReturnDate</strong></span>
+                            <span><strong>@book.BorrowedBy ödünç aldı.</strong></span>
                         }
                     </td>
                     <td>
-                        <a href="javascript:;" class="">Ödünç Ver</a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookBorrowModal" data-bs-bookId="@book.BookId">Ödünç Ver</button>
+
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+@Html.Partial("BookCheckout")

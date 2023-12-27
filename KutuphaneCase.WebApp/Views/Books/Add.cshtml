@@ -8,15 +8,15 @@
     <form method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="inputBookTitle">Kitap Adı</label>
-            <input type="text" name="Title" class="form-control" id="inputBookTitle" aria-describedby="emailHelp" placeholder="Kitap adı">
+            <input type="text" name="Title" class="form-control" id="inputBookTitle" aria-describedby="emailHelp" required placeholder="Kitap adı">
         </div>
         <div class="form-group">
             <label for="inputBookAuthors">Yazarlar</label>
-            <input type="text" name="Authors" class="form-control" id="inputBookAuthors" placeholder="Yazarlar">
+            <input type="text" name="Authors" class="form-control" id="inputBookAuthors" placeholder="Yazarlar" required>
         </div>
         <div class="form-group">
             <label for="inputBookPicture">Resim</label>
-            <input type="file" name="PictureFile" />
+            <input required type="file" name="PictureFile" />
         </div>
         <button type="submit" class="btn btn-primary">Kaydet</button>
     </form>

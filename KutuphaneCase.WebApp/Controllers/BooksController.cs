@@ -26,6 +26,7 @@ public class BooksController : Controller
         var responseBooks = books.Select(i =>
                                 new BookViewModel
                                 {
+                                    BookId=i.Id.ToString(),
                                     Title = i.Title,
                                     Authors = i.Author,
                                     PictureURL = i.URL,
@@ -57,6 +58,19 @@ public class BooksController : Controller
                 book.URL = "/uploads/"+uniqueFileName;
             }
             await _booksService.CreateBook(book);
+        }
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Borrow(BorrowViewModel borrowViewModel)
+    {
+        if (ModelState.IsValid)
+        {
+            var foundBook = await _booksService.GetBookById(borrowViewModel.BookId);
+            foundBook.ReturnDate = DateTime.Parse(borrowViewModel.ReturnDate);
+            foundBook.BorrowedBy=borrowViewModel.BorrowedBy;
+            await _booksService.UpdateBook(foundBook);
         }
         return RedirectToAction(nameof(Index));
     }

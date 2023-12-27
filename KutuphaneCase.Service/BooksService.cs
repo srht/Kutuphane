@@ -48,6 +48,7 @@ namespace KutuphaneCase.Service
         public async Task UpdateBook(Book bookToBeUpdated)
         {
             await _unitOfWork.Books.UpdateAsync(bookToBeUpdated.Id, bookToBeUpdated);
+            await _unitOfWork.Save();
         }
     }
 }

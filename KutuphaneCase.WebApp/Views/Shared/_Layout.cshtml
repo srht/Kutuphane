@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/KutuphaneCase.WebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="./css/bootstrap-datetimepicker.min.css" type="text/css" media="all" />
+
 </head>
 <body>
     <header>
@@ -23,7 +25,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Kitaplar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="AddNew">Kitap Ekle</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Add">Kitap Ekle</a>
                         </li>
                     </ul>
                 </div>
@@ -43,6 +45,8 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap-datetimepicker.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
